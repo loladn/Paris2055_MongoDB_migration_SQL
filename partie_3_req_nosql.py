@@ -44,7 +44,7 @@ req_a = [
 ]
 df_a = pd.DataFrame(list(db.TraficEvents.aggregate(req_a)))
 df_a = df_a[['id_ligne', 'nom_ligne', 'retard_moyen']]
-df_a.to_csv("A_nosql.csv", index=False)
+df_a.to_csv("./csv/A_nosql.csv", index=False)
 print("\n--- A. Moyenne retards (Top 5) ---")
 print(df_a.head())
 
@@ -86,7 +86,7 @@ req_b = [
 ]
 df_b = pd.DataFrame(list(db.Horaires.aggregate(req_b)))
 df_b = df_b[['id_ligne', 'nom_ligne', 'passagers_moyens_par_jour']]
-df_b.to_csv("B_nosql.csv", index=False)
+df_b.to_csv("./csv/B_nosql.csv", index=False)
 print("\n--- B. Passagers moyens/jour (Top 5) ---")
 print(df_b.head())
 
@@ -118,7 +118,7 @@ req_c = [
     { "$sort": { "taux_incident": -1, "nom_ligne": 1 } }
 ]
 df_c = pd.DataFrame(list(db.TraficEvents.aggregate(req_c)))
-df_c.to_csv("C_nosql.csv", index=False)
+df_c.to_csv("./csv/C_nosql.csv", index=False)
 print("\n--- C. Taux incident (Top 5) ---")
 print(df_c.head(9)) 
 
@@ -151,7 +151,7 @@ req_d = [
 df_d = pd.DataFrame(list(db.Mesures.aggregate(req_d)))
 df_d.rename(columns={'_id': 'id_vehicule'}, inplace=True)
 df_d = df_d[['id_vehicule', 'emission_moyenne_CO2']]
-df_d.to_csv("D_nosql.csv", index=False)
+df_d.to_csv("./csv/D_nosql.csv", index=False)
 print("\n--- D. CO2 Véhicule (Top 9) ---")
 print(df_d.head(9))
 
@@ -197,7 +197,7 @@ req_e = [
 ]
 df_e = pd.DataFrame(list(db.Mesures.aggregate(req_e)))
 df_e = df_e[['nom', 'bruit_moyen']]
-df_e.to_csv("E_nosql.csv", index=False)
+df_e.to_csv("./csv/E_nosql.csv", index=False)
 print("\n--- E. Top Bruit Quartier ---")
 print(df_e)
 
@@ -227,7 +227,7 @@ req_f = [
     { "$sort": { "nom_ligne": 1 } }
 ]
 df_f = pd.DataFrame(list(db.TraficEvents.aggregate(req_f)))
-df_f.to_csv("F_nosql.csv", index=False)
+df_f.to_csv("./csv/F_nosql.csv", index=False)
 print("\n--- F. Retards sans incident (Top 5) ---")
 print(df_f.head())
 
@@ -249,7 +249,7 @@ req_g = [
     { "$project": { "taux_ponctualite": { "$divide": ["$ponctuel", "$total"] }, "_id": 0 } }
 ]
 df_g = pd.DataFrame(list(db.Horaires.aggregate(req_g)))
-df_g.to_csv("G_nosql.csv", index=False)
+df_g.to_csv("./csv/G_nosql.csv", index=False)
 print("\n--- G. Ponctualité ---")
 print(df_g)
 
@@ -284,7 +284,7 @@ req_h = [
 ]
 df_h = pd.DataFrame(list(db.Reseau.aggregate(req_h)))
 df_h = df_h[['id_quartier', 'nom', 'nombre_arrets']]
-df_h.to_csv("H_nosql.csv", index=False)
+df_h.to_csv("./csv/H_nosql.csv", index=False)
 print("\n--- H. Arrêts par quartier (Top 9) ---")
 print(df_h.head(9))
 
@@ -333,7 +333,7 @@ req_i = [
 ]
 df_i = pd.DataFrame(list(db.Reseau.aggregate(req_i)))
 df_i = df_i[['id_ligne', 'nom_ligne', 'retard_moyen', 'co2_moyen', 'indice_correlation']]
-df_i.to_csv("I_nosql.csv", index=False)
+df_i.to_csv("./csv/I_nosql.csv", index=False)
 print("\n--- I. Corrélation (Top 5) ---")
 print(df_i.head())
 
@@ -369,7 +369,7 @@ req_j = [
 ]
 df_j = pd.DataFrame(list(db.Mesures.aggregate(req_j)))
 df_j = df_j[['id_ligne', 'nom_ligne', 'temperature_moyenne']]
-df_j.to_csv("J_nosql.csv", index=False)
+df_j.to_csv("./csv/J_nosql.csv", index=False)
 print("\n--- J. Température Ligne (Top 5) ---")
 print(df_j.head())
 
@@ -406,7 +406,7 @@ req_k = [
 ]
 df_k = pd.DataFrame(list(db.Reseau.aggregate(req_k)))
 df_k = df_k[['id_chauffeur', 'nom', 'retard_moyen']]
-df_k.to_csv("K_nosql.csv", index=False)
+df_k.to_csv("./csv/K_nosql.csv", index=False)
 print("\n--- K. Performance Chauffeur (Top 9) ---")
 print(df_k.head(9))
 
@@ -444,7 +444,7 @@ req_l = [
 ]
 df_l = pd.DataFrame(list(db.Reseau.aggregate(req_l)))
 df_l = df_l[['id_ligne', 'nom_ligne', 'pourcentage_electrique']]
-df_l.to_csv("L_nosql.csv", index=False)
+df_l.to_csv("./csv/L_nosql.csv", index=False)
 print("\n--- L. Véhicules Electriques (Top 5) ---")
 print(df_l.head())
 
@@ -480,7 +480,7 @@ req_m = [
 ]
 df_m = pd.DataFrame(list(db.Mesures.aggregate(req_m)))
 df_m = df_m[['id_capteur', 'id_arret', 'pollution_moyenne', 'niveau_pollution']]
-df_m.to_csv("M_nosql.csv", index=False)
+df_m.to_csv("./csv/M_nosql.csv", index=False)
 print("\n--- M. Classification Pollution (Top 9) ---")
 print(df_m.head(9))
 
@@ -522,7 +522,7 @@ req_n = [
 ]
 df_n = pd.DataFrame(list(db.TraficEvents.aggregate(req_n)))
 df_n = df_n[['id_ligne', 'nom_ligne', 'retard_moyen', 'niveau_service']]
-df_n.to_csv("N_nosql.csv", index=False)
+df_n.to_csv("./csv/N_nosql.csv", index=False)
 print("\n--- N. Qualité Service (Top 5) ---")
 print(df_n.head())
 

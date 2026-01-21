@@ -15,7 +15,7 @@ df_A = pandas.read_sql_query("""
     GROUP BY Ligne.id_ligne, Ligne.nom_ligne
     ORDER BY retard_moyen DESC;
 """, conn)
-df_A.to_csv("A_sql.csv", index=False)
+df_A.to_csv("./csv/A_sql.csv", index=False)
 print("Requete A : OK")
 
 # b. Nombre moyen de passagers transportés par jour et par ligne
@@ -37,7 +37,7 @@ df_B = pandas.read_sql_query("""
     GROUP BY id_ligne, nom_ligne
     ORDER BY passagers_moyens_par_jour DESC;
 """, conn)
-df_B.to_csv("B_sql.csv", index=False)
+df_B.to_csv("./csv/B_sql.csv", index=False)
 print("Requete B : OK")
 
 # c. Taux d’incident sur chaque ligne
@@ -58,7 +58,7 @@ df_C = pandas.read_sql_query("""
     LEFT JOIN stats ON Ligne.id_ligne = stats.id_ligne
     ORDER BY taux_incident DESC;
 """, conn)
-df_C.to_csv("C_sql.csv", index=False)
+df_C.to_csv("./csv/C_sql.csv", index=False)
 print("Requete C : OK")
 
 # d. Emissions moyennes de CO₂ par véhicule
@@ -75,7 +75,7 @@ df_D = pandas.read_sql_query("""
     GROUP BY Vehicule.id_vehicule
     ORDER BY emission_moyenne_CO2 DESC, Vehicule.id_vehicule DESC;
 """, conn)
-df_D.to_csv("D_sql.csv", index=False)
+df_D.to_csv("./csv/D_sql.csv", index=False)
 print("Requete D : OK")
 
 # e. Top 5 des quartiers avec le plus de nuisances sonores
@@ -92,7 +92,7 @@ df_E = pandas.read_sql_query("""
     ORDER BY bruit_moyen DESC
     LIMIT 5;
 """, conn)
-df_E.to_csv("E_sql.csv", index=False)
+df_E.to_csv("./csv/E_sql.csv", index=False)
 print("Requete E : OK")
 
 # f. Liste des lignes sans incident mais avec retards > 10 min
@@ -105,7 +105,7 @@ df_F = pandas.read_sql_query("""
       AND Incident.id_incident IS NULL
     ORDER BY Ligne.nom_ligne;
 """, conn)
-df_F.to_csv("F_sql.csv", index=False)
+df_F.to_csv("./csv/F_sql.csv", index=False)
 print("Requete F : OK")
 
 # g. Taux de ponctualité global
@@ -115,7 +115,7 @@ df_G = pandas.read_sql_query("""
     FROM Horaire
     WHERE heure_effective IS NOT NULL;
 """, conn)
-df_G.to_csv("G_sql.csv", index=False)
+df_G.to_csv("./csv/G_sql.csv", index=False)
 print("Requete G : OK")
 
 # h. Nombre d’arrêts par quartier
@@ -128,7 +128,7 @@ df_H = pandas.read_sql_query("""
     GROUP BY Quartier.id_quartier, Quartier.nom
     ORDER BY nombre_arrets DESC;
 """, conn)
-df_H.to_csv("H_sql.csv", index=False)
+df_H.to_csv("./csv/H_sql.csv", index=False)
 print("Requete H : OK")
 
 # i. Corrélation entre trafic et pollution par ligne
@@ -157,7 +157,7 @@ df_I = pandas.read_sql_query("""
     JOIN Pollution ON Pollution.id_ligne = Retards.id_ligne
     ORDER BY indice_correlation DESC;
 """, conn)
-df_I.to_csv("I_sql.csv", index=False)
+df_I.to_csv("./csv/I_sql.csv", index=False)
 print("Requete I : OK")
 
 # j. Moyenne de température par ligne
@@ -173,7 +173,7 @@ df_J = pandas.read_sql_query("""
     GROUP BY Ligne.id_ligne, Ligne.nom_ligne
     ORDER BY temperature_moyenne DESC;
 """, conn)
-df_J.to_csv("J_sql.csv", index=False)
+df_J.to_csv("./csv/J_sql.csv", index=False)
 print("Requete J : OK")
 
 # k. Performance chauffeur
@@ -187,7 +187,7 @@ df_K = pandas.read_sql_query("""
     GROUP BY Chauffeur.id_chauffeur, Chauffeur.nom
     ORDER BY retard_moyen DESC;
 """, conn)
-df_K.to_csv("K_sql.csv", index=False)
+df_K.to_csv("./csv/K_sql.csv", index=False)
 print("Requete K : OK")
 
 # l. % de véhicules électriques
@@ -200,7 +200,7 @@ df_L = pandas.read_sql_query("""
     GROUP BY Ligne.id_ligne, Ligne.nom_ligne
     ORDER BY pourcentage_electrique DESC;
 """, conn)
-df_L.to_csv("L_sql.csv", index=False)
+df_L.to_csv("./csv/L_sql.csv", index=False)
 print("Requete L : OK")
 
 # m. Requête CASE WHEN : Classification pollution
@@ -226,7 +226,7 @@ df_M = pandas.read_sql_query("""
     FROM Pollution
     ORDER BY pollution_moyenne DESC;
 """, conn)
-df_M.to_csv("M_sql.csv", index=False)
+df_M.to_csv("./csv/M_sql.csv", index=False)
 print("Requete M : OK")
 
 # N. Trouver une autre requête utilisant un case when et qui ait du sens dans ce contexte : Retard classé par gravité
@@ -242,7 +242,7 @@ df_N = pandas.read_sql_query("""SELECT Ligne.id_ligne,
        JOIN Ligne ON Ligne.id_ligne = Trafic.id_ligne
        GROUP BY Ligne.id_ligne, Ligne.nom_ligne
        ORDER BY retard_moyen DESC;""", conn)
-df_N.to_csv("N_sql.csv", index=False)
+df_N.to_csv("./csv/N_sql.csv", index=False)
 print("Requete N : OK")
 
 # Fermeture de la connexion
