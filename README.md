@@ -42,6 +42,7 @@ L'objectif principal est de comparer les approches **relationnelle (SQL)** et **
 ## 🛠️ Technologies
 
 - **Base de données** : SQLite, MongoDB
+- **Outils MongoDB** : MongoDB Compass (interface graphique)
 - **Langages** : Python 3.x
 - **Visualisation** : Streamlit, Plotly, Folium
 - **Traitement** : Pandas, PyMongo
@@ -50,15 +51,17 @@ L'objectif principal est de comparer les approches **relationnelle (SQL)** et **
 ## 📁 Structure du Projet
 
 ```
-mongodb_jade_manu_lola/
+Paris2055_MongoDB_migration_SQL/
+├── csv/                         # Dossier des résultats d'analyses
+│   ├── A_sql.csv - N_sql.csv   # Résultats SQL (14 requêtes)
+│   └── A_nosql.csv - N_nosql.csv # Résultats NoSQL (14 requêtes)
 ├── partie_1_req_sql.py          # Requêtes SQL (14 analyses)
 ├── partie_2_migration.py        # Script de migration SQL → MongoDB
 ├── partie_3_req_nosql.py        # Requêtes NoSQL équivalentes
 ├── partie_4_dashboard.py        # Dashboard Streamlit
 ├── Paris2055.sqlite             # Base source (non fournie)
-├── *_sql.csv                    # Résultats SQL (A-N)
-├── *_nosql.csv                  # Résultats NoSQL (A-N)
-└── README.md
+├── .gitignore                   # Fichiers à exclure du versioning
+└── README.md                    # Documentation du projet
 ```
 
 ## 🚀 Installation
@@ -66,6 +69,7 @@ mongodb_jade_manu_lola/
 ### Prérequis
 - Python 3.8+
 - MongoDB Community Server
+- MongoDB Compass (optionnel, interface graphique)
 - SQLite3
 
 ### Installation des dépendances
@@ -82,6 +86,12 @@ mongod --dbpath /chemin/vers/data
 ```
 
 2. Vérifier la connexion sur `mongodb://localhost:27017/`
+
+3. **[Optionnel]** Utiliser MongoDB Compass pour visualiser les données :
+   - Ouvrir MongoDB Compass
+   - Se connecter à `mongodb://localhost:27017`
+   - Explorer les collections `Paris2055`
+   - Visualiser les documents, créer des requêtes graphiquement
 
 ## 📖 Utilisation
 
@@ -152,24 +162,18 @@ db.TraficEvents.aggregate([
 - ✅ Visualiser des données géospatiales
 - ✅ Créer des dashboards interactifs
 
-## 👥 Auteurs
+## 👥 Auteures
 
 - **Jade Le Brouster**
 - **Emmanuelle Orain**
 - **Lola Dixneuf**
 
 **Formation** : BUT Science des Données 3 - Université de Poitiers  
-**Année** : 2024-2025
+**Année** : 2025-2026
 
 ## 📄 Licence
 
 Projet académique - Tous droits réservés
-
-## 🙏 Remerciements
-
-- Université de Poitiers - Département Science des Données
-- Enseignants du module Python/MongoDB
-- Communautés MongoDB et Streamlit
 
 ---
 
