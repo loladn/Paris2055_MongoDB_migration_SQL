@@ -1,0 +1,79 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Base de données SQLite (ne pas versionner la base source)
+Paris2055.sqlite
+paris2055.sqlite
+*.sqlite
+*.sqlite3
+*.db
+
+# MongoDB (données locales)
+dump/
+*.bson
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# IDEs et éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Environnement et secrets
+.env
+.env.local
+*.pem
+
+# Fichiers temporaires
+*.tmp
+*.bak
+*.cache
+
+# Documentation générée
+site/
